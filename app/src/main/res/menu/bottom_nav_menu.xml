@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/iExplorar"
+        android:enabled="true"
+        android:title="Explorar"
+        android:icon="@drawable/ic_explore"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/iChats"
+        android:enabled="true"
+        android:title="Chats"
+        android:icon="@drawable/ic_message"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/iPerfil"
+        android:enabled="true"
+        android:title="Mi Perfil"
+        android:icon="@drawable/ic_person"
+        app:showAsAction="ifRoom"/>
+
+</menu>

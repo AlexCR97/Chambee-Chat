@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5aa0dc</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#5aa0dc</color>
+    <color name="colorInicial">#3f6f9e</color>
+    <color name="colorFinal">#5aa0dc</color>
+    <color name="colorCentro">#015fa2</color>
+    <color name="blanco">#ffffff</color>
+    <color name="amarillo">#fcd321</color>
+    <color name="gris">#eaeaea</color>
+    <color name="activeDot">#0098d7</color>
+    <color name="inactiveDot">#8B8B8B</color>
+</resources>

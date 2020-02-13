@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.InicioActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorFinal">
+        <ImageView
+            android:id="@+id/ivConfiguracion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_settings"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+            <ImageView
+                android:id="@+id/ivTopLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logo"/>
+            <TextView
+                android:id="@+id/tvCham"
+                android:textColor="@color/blanco"
+                android:textSize="18sp"
+                android:layout_marginStart="5dp"
+                android:text="cham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/tvBee"
+                android:textColor="@color/amarillo"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:text="bee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+            <ImageView
+                android:id="@+id/ivNotificaciones"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_message"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemTextColor="@color/colorFinal"/>
+
+    <FrameLayout
+        android:id="@+id/flFragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="56dp"/>
+
+</RelativeLayout>

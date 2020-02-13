@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degradado_splash"
+    tools:context=".ui.activities.RegistroActivity">
+
+    <ScrollView
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginBottom="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="170dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/logo"
+                    android:id="@+id/ivLogo"
+                    android:transitionName="imageTransition"
+                    />
+                <LinearLayout
+                    android:id="@+id/llNombre"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/ivLogo"
+                    android:transitionName="layoutTransition"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="cham"
+                        android:textColor="@color/blanco"
+                        android:textSize="25sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="bee"
+                        android:textColor="@color/amarillo"
+                        android:textSize="25sp"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etCorreo"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_correo"
+                    android:drawablePadding="15dp"
+                    android:textSize="14sp"
+                    android:hint="Correo Electronico"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/fondo_redondeado_blanco"
+                    />
+                <EditText
+                    android:id="@+id/etContrasena"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_contrasena"
+                    android:drawablePadding="15dp"
+                    android:textSize="14sp"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/fondo_redondeado_blanco"
+                    />
+                <EditText
+                    android:id="@+id/etConfirmarContrasena"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_contrasena"
+                    android:drawablePadding="15dp"
+                    android:textSize="14sp"
+                    android:hint="Confirmar Contraseña"
+                    android:inputType="textPassword"
+                    android:elevation="8dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/fondo_redondeado_blanco"
+                    />
+                <Button
+                    android:id="@+id/bRegistrarse"
+                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/fondo_boton_amarillo"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:text="Registrarse"
+                    android:elevation="8dp"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_marginTop="70dp"
+                android:id="@+id/rlAbajo"
+                android:transitionName="linearTransition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/amarillo"
+                android:paddingVertical="15dp"
+                android:layout_alignParentBottom="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¿Ya tienes una cuenta? "
+                        android:textAlignment="center"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/tvIniciarSesion"
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inicia Sesión"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
