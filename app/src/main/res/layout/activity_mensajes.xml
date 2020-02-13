@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_redondeado_arriba_blanco">
+
+    <!-- toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llEncabezadoChat"
+        android:layout_height="wrap_content"
+        android:background="#eaeaea"
+        android:orientation="horizontal">
+
+        <!-- back button -->
+        <ImageView
+            android:id="@+id/ivRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:src="@drawable/ic_regresar"/>
+
+        <!-- encabezado del chat -->
+        <RelativeLayout
+            android:id="@+id/rlEncabezadoChat"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- nombre de usuario -->
+            <TextView
+                android:id="@+id/tvNombreUsuarioReceptor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/ivOpciones"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_more"/>
+
+        </RelativeLayout><!-- encabezado del chat -->
+
+    </LinearLayout><!-- toolbar -->
+
+    <!-- lista de mensajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llEncabezadoChat"
+        android:layout_above="@id/vLineaMensaje"/>
+
+    <!-- separador -->
+    <View
+        android:id="@+id/vLineaMensaje"
+        android:layout_above="@+id/rlEnviarMensajes"
+        android:background="#228B8B8B"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!-- enviar mensaje container -->
+    <RelativeLayout
+        android:id="@+id/rlEnviarMensajes"
+        android:padding="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+
+        <!-- mensaje y boton de enviar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!-- mensaje -->
+            <EditText
+                android:id="@+id/etMensaje"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/fondo_redondeado_blanco_contorno"
+                android:hint="Escribe algo..."
+                android:imeOptions="actionSend"
+                android:padding="15dp"
+                android:singleLine="true"
+                android:textSize="14sp"/>
+
+            <!-- enviar -->
+            <ImageView
+                android:id="@+id/ivEnviarMensaje"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_send"/>
+
+        </LinearLayout><!-- mensaje y boton de enviar -->
+
+    </RelativeLayout><!-- enviar mensaje container -->
+
+</RelativeLayout>
