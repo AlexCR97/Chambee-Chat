@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.ExplorarFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.ExplorarFragment"
+    android:background="#EAEAEA">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- personas -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personas"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/tvPersonas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Ver todos"
+            android:textSize="16sp"
+            android:layout_marginEnd="20dp"/>
+
+    </RelativeLayout><!-- personas -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@drawable/fondo_redondeado_blanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvPersonas"/>
+
+    <!-- contratando -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contratando"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/tvContratando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Ver todos"
+            android:textSize="16sp"
+            android:layout_marginEnd="20dp"/>
+
+    </RelativeLayout><!-- contratando -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@drawable/fondo_redondeado_blanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvContratando"/>
+
+    <!-- buscando trabajo -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscando trabajo"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/tvBuscandoTrabajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Ver todos"
+            android:textSize="16sp"
+            android:layout_marginEnd="20dp"/>
+
+    </RelativeLayout><!-- buscando trabajo -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@drawable/fondo_redondeado_blanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvBuscandoTrabajo"/>
+
+</LinearLayout>

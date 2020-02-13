@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <!-- item container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- imagen de perfil -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civImagenPerfilUsuario"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@color/colorFinal"/>
+
+        <!-- datos container -->
+        <LinearLayout
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- nombre de usuario y estado -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- nombre de usuario -->
+                <TextView
+                    android:id="@+id/tvNombreUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Usuario"
+                    android:textSize="20sp"/>
+
+                <!-- situacion de usuario -->
+                <TextView
+                    android:id="@+id/tvSituacionUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Situacion"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout><!-- nombre de usuario y estado -->
+
+            <!-- estado del usuario -->
+            <TextView
+                android:id="@+id/tvEstadoUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textSize="24sp"/>
+
+        </LinearLayout><!-- datos container -->
+
+    </LinearLayout><!-- item container -->
+
+</LinearLayout>

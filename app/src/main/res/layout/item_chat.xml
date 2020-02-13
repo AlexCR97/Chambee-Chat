@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civFotoMensajes"
+            android:id="@+id/civImagenPerfilUsuario"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@color/colorFinal"/>
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/tvUsuarioChat"
+                    android:id="@+id/tvNombreUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Usuario"
@@ -42,8 +43,8 @@
                     android:gravity="left"/>
 
                 <TextView
+                    android:id="@+id/tvFecha"
                     android:layout_centerVertical="true"
-                    android:id="@+id/tvFechaChat"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,9 +67,9 @@
                         android:layout_height="20dp"
                         android:src="@drawable/enviado"/>
                     <TextView
+                        android:id="@+id/tvUltimoMensaje"
                         android:layout_marginStart="5dp"
                         android:layout_gravity="center"
-                        android:id="@+id/tvMensaje"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Lorem ipsum"
@@ -76,7 +77,7 @@
                 </LinearLayout>
                 <TextView
                     android:layout_centerVertical="true"
-                    android:id="@+id/tvNumeroMensaje"
+                    android:id="@+id/tvCantidadSinLeer"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:textSize="12sp"

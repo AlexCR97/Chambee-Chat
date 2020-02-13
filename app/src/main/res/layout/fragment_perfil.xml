@@ -41,17 +41,6 @@
                         android:text="Nombre de Usuario"
                         android:textSize="24sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=", "
-                        android:textSize="24sp"/>
-                    <TextView
-                        android:id="@+id/tvEdadUsuario"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00"
-                        android:textSize="24sp"/>
                     <ImageView
                         android:id="@+id/ivInsigniaPrincipal"
                         android:layout_marginStart="15dp"
@@ -59,6 +48,7 @@
                         android:layout_height="25dp"
                         android:src="@drawable/amable"
                         android:layout_gravity="center"/>
+
                 </LinearLayout>
 
                 <LinearLayout
