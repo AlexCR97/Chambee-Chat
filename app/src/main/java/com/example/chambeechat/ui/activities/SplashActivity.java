@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ivLogo = findViewById(R.id.ivLogo);
-        llNombre=findViewById(R.id.llNombre);
+        llNombre = findViewById(R.id.llNombre);
 
         new Handler().postDelayed(new Runnable() {
             @Override
