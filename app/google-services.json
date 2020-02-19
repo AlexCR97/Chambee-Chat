@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "249393023480",
+    "firebase_url": "https://chambee-chat-b2344.firebaseio.com",
+    "project_id": "chambee-chat-b2344",
+    "storage_bucket": "chambee-chat-b2344.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249393023480:android:ee1e0084a0000676cbae0d",
+        "android_client_info": {
+          "package_name": "com.example.chambeechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249393023480-fms8ugsqk82pqf8lio5m6vn1b49gemd0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chambeechat",
+            "certificate_hash": "74fd08deb3d2b52ddb3171682a12c10338e2c338"
+          }
+        },
+        {
+          "client_id": "249393023480-cpub1i83g4ekgih2k0r9eqhi7lh9j1mg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuJM6LduLVOFmXyHIfKNNYw4RRCuD8npg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249393023480-cpub1i83g4ekgih2k0r9eqhi7lh9j1mg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
