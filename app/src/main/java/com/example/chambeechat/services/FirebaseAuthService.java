@@ -1,9 +1,10 @@
-package com.example.chambeechat.firebase;
+package com.example.chambeechat.services;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.chambeechat.models.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -44,6 +45,12 @@ public class FirebaseAuthService {
                 }
             }
         })
+        .addOnFailureListener(onFailureListener);
+    }
+
+    public void signInWithEmail(String email, String password, OnSuccessListener<AuthResult> onSuccessListener, OnFailureListener onFailureListener) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+        .addOnSuccessListener(onSuccessListener)
         .addOnFailureListener(onFailureListener);
     }
 

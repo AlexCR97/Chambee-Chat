@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.InicioActivity">
 
+    <!-- custom toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -61,7 +62,14 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_message"/>
         </LinearLayout>
-    </RelativeLayout>
+    </RelativeLayout><!-- custom toolbar -->
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="56dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -71,12 +79,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemTextColor="@color/colorFinal"/>
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="56dp"/>
 
 </RelativeLayout>

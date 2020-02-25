@@ -3,6 +3,7 @@ package com.example.chambeechat.ui.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,15 +12,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.chambeechat.R;
-import com.example.chambeechat.firebase.FirebaseAuthService;
-import com.example.chambeechat.firebase.FirestoreService;
+import com.example.chambeechat.data.Datos;
+import com.example.chambeechat.models.Usuario;
+import com.example.chambeechat.services.FirebaseAuthService;
+import com.example.chambeechat.services.FirestoreService;
+import com.example.chambeechat.validators.EmailValidator;
+import com.example.chambeechat.validators.NonEmptyStringValidator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     private TextView tvOlvideContrasena;
     private ImageView ivGoogle;
     private TextView tvRegistrate;
+    private ProgressDialog progressDialog;
+
+    private final FirebaseAuthService authService = new FirebaseAuthService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,140 +54,87 @@ public class LoginActivity extends AppCompatActivity {
         bIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //iniciarSesion();
-                signUp();
-                //listUsers();
-                //addUser();
-                //sendMessage();
-                //listChatsFromUser();
+                String email = etCorreo.getText().toString();
+                String password = etContrasena.getText().toString();
+                //String email = "karla@gmail.com";
+                //String password = "123456";
+
+                if (validateCredentials(email, password)) {
+                    signIn(email, password);
+                }
+            }
+        });
+
+        tvRegistrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
 
-    private void iniciarSesion() {
-        String correo = etCorreo.getText().toString();
-        String contrasena = etContrasena.getText().toString();
+    private boolean validateCredentials(String email, String password) {
+        // validate email
+        EmailValidator emailValidator = new EmailValidator();
 
-        Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
-        startActivity(intent);
-        finish();
+        if (!emailValidator.validate(email)) {
+            Toast.makeText(this, "El correo no es valido", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        // validate passsword
+        NonEmptyStringValidator nonEmptyStringValidator = new NonEmptyStringValidator();
+
+        if (!nonEmptyStringValidator.validate(password)) {
+            Toast.makeText(this, "Ingresa tu contraseña", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
     }
 
-    private void signUp() {
-        String correo = etCorreo.getText().toString();
-        String contrasena = etContrasena.getText().toString();
+    private void signIn(String email, String password) {
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setTitle("Iniciando sesion...");
+        progressDialog.show();
 
-        final FirebaseAuthService service = new FirebaseAuthService();
-
-        service.isEmailAvailable(correo, new FirebaseAuthService.OnEmailAvailableCheck() {
+        authService.signInWithEmail(email, password, new OnSuccessListener<AuthResult>() {
             @Override
-            public void onComplete(boolean isEmailAvailable) {
-                if (isEmailAvailable) {
-                    Log.e("chambee", "Email is available");
-                }
-                else {
-                    Log.e("chambee", "Email is not available");
-                }
+            public void onSuccess(AuthResult authResult) {
+                saveUserCacheDataAndGoToHomePage();
             }
         }, new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Email is not available: " + e.getMessage());
-            }
-        });
-
-        /*service.signUpWithEmail(correo, contrasena, new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.e("chambee", "Success creating user");
-                Log.e("chambee", "Current user: " + service.getCurrentUser().toString());
-            }
-        }, new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Error listing users: " + e.getMessage());
-            }
-        });*/
-    }
-
-    private void listUsers() {
-        FirestoreService firestoreService = new FirestoreService();
-        firestoreService.getUsers().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                Log.e("chambee", "Success listing users");
-
-                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    Log.e("chambee", documentSnapshot.getId() + " -> " + documentSnapshot.getData());
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Error listing users: " + e.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void addUser() {
-        String correo = etCorreo.getText().toString();
-        String contrasena = etContrasena.getText().toString();
-
+    private void saveUserCacheDataAndGoToHomePage() {
+        FirebaseAuthService authService = new FirebaseAuthService();
         FirestoreService firestoreService = new FirestoreService();
 
-        firestoreService.addUser(correo, contrasena)
-        .addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseUser firebaseUser = authService.getCurrentUser();
+        firestoreService.getUsuario(firebaseUser.getUid(), new FirestoreService.OnDataParsedListener<Usuario>() {
             @Override
-            public void onSuccess(Void aVoid) {
-                Log.e("chambee", "User added!");
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Error adding user :(");
-            }
-        });
-    }
+            public void onParsed(Usuario parsedData) {
+                progressDialog.dismiss();
 
-    private void sendMessage() {
-        String sender = "1y1M21WODQ1hjNAEl0R8";
-        String reciever = "7P7ccZyxWsqZPT6e3CBo";
-        String message = "Message from cr@gmail.com to jayson@gmail.com";
+                Datos.setUsuario(parsedData);
 
-        FirestoreService service = new FirestoreService();
-
-        Log.e("chambee", "Sending message on transaction...");
-
-        service.transactionSendMessage(sender, reciever, message, new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.e("chambee", "Message sent successfully");
+                Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
+                startActivity(intent);
+                finish();
             }
         }, new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Error sending message: " + e.getMessage());
-            }
-        });
-    }
-
-    private void listChatsFromUser() {
-        String userId = "24NHf4k0O5OijyTPCVho";
-
-        FirestoreService service = new FirestoreService();
-
-        service.getChatsFromUser(userId)
-        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Log.e("chambee", documentSnapshot.getId() + " -> " + documentSnapshot.getData());
-            }
-        })
-        .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.e("chambee", "Error getting chats: " + e.getMessage());
+                progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

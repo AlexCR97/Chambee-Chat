@@ -32,15 +32,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <!-- id de usuario (invisible para backend) -->
+                <TextView
+                    android:id="@+id/tvUid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="16sp"
+                    android:visibility="gone"/>
+
                 <!-- nombre de usuario -->
                 <TextView
                     android:id="@+id/tvNombreUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Usuario"
-                    android:textSize="20sp"/>
+                    android:textSize="16sp"/>
 
-                <!-- situacion de usuario -->
+                <!-- situacion de usuario (buscando trabajo, contratando) -->
                 <TextView
                     android:id="@+id/tvSituacionUsuario"
                     android:layout_width="wrap_content"
@@ -51,13 +60,13 @@
 
             </RelativeLayout><!-- nombre de usuario y estado -->
 
-            <!-- estado del usuario -->
+            <!-- estado del usuario (una breve descripcion de lo que busca) -->
             <TextView
                 android:id="@+id/tvEstadoUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Usuario"
-                android:textSize="24sp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout><!-- datos container -->
 

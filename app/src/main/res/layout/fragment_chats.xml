@@ -47,7 +47,7 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMensajes"
+        android:id="@+id/rvChats"
         android:background="@drawable/fondo_redondeado_blanco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

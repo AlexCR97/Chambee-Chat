@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chambeechat.R;
+import com.example.chambeechat.data.Datos;
+import com.example.chambeechat.models.Mensaje;
 
 import java.util.List;
 
@@ -30,9 +32,9 @@ public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.ViewHo
     public static final int MENSAJE_DER = 1;
 
     private Context context;
-    private List<Object> items;
+    private List<Mensaje> items;
 
-    public MensajesAdapter(Context context, List<Object> items) {
+    public MensajesAdapter(Context context, List<Mensaje> items) {
         this.context = context;
         this.items = items;
     }
@@ -51,7 +53,9 @@ public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MensajesAdapter.ViewHolder holder, int position) {
+        Mensaje mensaje = items.get(position);
 
+        holder.tvMensaje.setText(mensaje.getMessage());
     }
 
     @Override
@@ -61,10 +65,13 @@ public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.ViewHo
 
     @Override
     public int getItemViewType(int position) {
-        if (position % 2 == 0) {
-            return MENSAJE_IZQ;
-        } else {
+        Mensaje mensaje = items.get(position);
+
+        if (mensaje.getSender().equals(Datos.getUsuario().getUid())) {
             return MENSAJE_DER;
+        }
+        else {
+            return MENSAJE_IZQ;
         }
     }
 }

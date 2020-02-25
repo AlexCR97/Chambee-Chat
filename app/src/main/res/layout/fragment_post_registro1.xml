@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.PostRegistro1Fragment">
+
+    <!-- foto de perfil y nombre de usuario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Personaliza tu perfil"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Elige una foto de perfil y crea tu nombre de usuario"
+            android:textSize="18sp" />
+
+        <!-- foto de perfil -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civImagenPerfil"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:src="@color/colorFinal"/>
+
+        <EditText
+            android:id="@+id/etNombreUsuario"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_redondeado_blanco_contorno"
+            android:elevation="8dp"
+            android:hint="Nombre de usuario"
+            android:padding="15dp"
+            android:textSize="20sp"/>
+
+    </LinearLayout><!-- foto de perfil y nombre de usuario -->
+
+</RelativeLayout>

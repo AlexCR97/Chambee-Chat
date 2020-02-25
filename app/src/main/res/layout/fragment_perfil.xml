@@ -5,20 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
                     android:src="@color/gris"/>
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/civImagenPerfilUsuario"
                     android:layout_width="120dp"
@@ -47,6 +52,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/amable"
+                        android:visibility="gone"
                         android:layout_gravity="center"/>
 
                 </LinearLayout>
@@ -58,7 +64,7 @@
                     android:layout_marginStart="20dp"
                     android:fontFamily="sans-serif-thin">
                     <TextView
-                        android:id="@+id/tvCiudadUsuario"
+                        android:id="@+id/tvLocacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="New York, EE.UU"
@@ -74,18 +80,104 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp" />
 
-                <TextView
-                    android:id="@+id/tvAcercaDeMi"
-                    android:textColor="#8b8b8b"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Acerca de mi"
-                    android:textSize="18sp"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginStart="20dp"/>
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+                    <TextView
+                        android:textColor="#8b8b8b"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="Situación"
+                        android:textSize="18sp"/>
+                    <ImageView
+                        android:id="@+id/ivEditarSituacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_edit"/>
+                </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/tvAcercaDeMiPerfil"
+                    android:id="@+id/tvSituacion"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut tincidunt urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+
+                <View
+                    android:background="#228B8B8B"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+                    <TextView
+                        android:textColor="#8b8b8b"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="Estado"
+                        android:textSize="18sp"/>
+                    <ImageView
+                        android:id="@+id/ivEditarEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_edit"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvEstado"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut tincidunt urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#228B8B8B" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+                    <TextView
+                        android:textColor="#8b8b8b"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="Acerca de mi"
+                        android:textSize="18sp"/>
+                    <ImageView
+                        android:id="@+id/ivEditarAcercaDeMi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_edit"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvAcercaDeMi"
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut tincidunt urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"

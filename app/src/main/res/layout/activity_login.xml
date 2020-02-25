@@ -63,6 +63,7 @@
                     android:textSize="14sp"
                     android:drawableLeft="@drawable/ic_usuario"
                     android:drawablePadding="15dp"
+                    android:inputType="textEmailAddress"
                     android:hint="Correo"
                     android:elevation="8dp"
                     android:padding="10dp"
@@ -87,8 +88,8 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
-                    android:background="@drawable/fondo_redondeado_blanco"
-                    />
+                    android:background="@drawable/fondo_redondeado_blanco"/>
+
                 <Button
                     android:id="@+id/bIniciarSesion"
                     android:textColor="#000"

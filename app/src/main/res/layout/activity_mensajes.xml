@@ -26,6 +26,13 @@
             android:paddingStart="15dp"
             android:src="@drawable/ic_regresar"/>
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civImagenPerfilUsuario"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center_vertical"
+            android:src="@color/colorFinal" />
+
         <!-- encabezado del chat -->
         <RelativeLayout
             android:id="@+id/rlEncabezadoChat"
@@ -35,7 +42,7 @@
 
             <!-- nombre de usuario -->
             <TextView
-                android:id="@+id/tvNombreUsuarioReceptor"
+                android:id="@+id/tvDisplayNameReceiver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Usuario"
@@ -55,7 +62,7 @@
 
     <!-- lista de mensajes -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChat"
+        android:id="@+id/rvMensajes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/llEncabezadoChat"
